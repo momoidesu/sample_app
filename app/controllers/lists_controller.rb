@@ -8,11 +8,15 @@ class ListsController < ApplicationController
 
     list.save
 
-    redirect_to '/top'
+    redirect_to list_path(list.id)
   end
 
   def index
     @lists = List.all
+  end
+  
+  def show
+    @list = List.find(params[:id])
   end
 
   private
@@ -22,12 +26,3 @@ class ListsController < ApplicationController
   end
 end
 
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   app/controllers/lists_controller.rb
-        modified:   app/views/lists/index.html.erb
-        modified:   config/routes.rb
-
-no changes added to commit (use "git add" and/or "git commit -a")
